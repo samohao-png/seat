@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 오늘의 양궁 발표자 뽑기! 🎯</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>🏹 오늘의 발표 번호 조준!</h1>
+        <p class="subtitle">과녁의 중심을 향해 화살을 날려보세요!</p>
+        <hr>
+
+        <!-- 반 선택 영역 -->
+        <div class="setup-section">
+            <label for="class-select">🏫 학반 선택: </label>
+            <select id="class-select">
+                <option value="1">1반</option>
+                <option value="2">2반</option>
+                <option value="3">3반</option>
+                <option value="4">4반</option>
+                <option value="5">5반</option>
+                <option value="6">6반</option>
+                <option value="7">7반</option>
+                <option value="8">8반</option>
+            </select>
+        </div>
+
+        <!-- 양궁 시각 효과 영역 -->
+        <div class="archery-field">
+            <!-- 과녁판 (CSS로 구현) -->
+            <div id="target" class="target-board">
+                <div class="ring red">
+                    <div class="ring blue">
+                        <div class="ring black">
+                            <div class="ring white"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 결과 번호가 꽂히는 정중앙 골드 존 -->
+                <div id="gold-center" class="gold-center">
+                    <span id="result-number" class="hidden">?</span>
+                </div>
+            </div>
+            
+            <!-- 날아갈 화살 -->
+            <div id="arrow" class="arrow-graphic hidden">🏹➡️</div>
+        </div>
+
+        <!-- 제어 버튼 및 알림창 -->
+        <div class="control-section">
+            <button id="shoot-btn" class="shoot-btn">🎯 화살 쏘기 (Shoot!)</button>
+            <p id="announcement" class="announcement-text">반을 선택하고 화살을 쏘세요!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
