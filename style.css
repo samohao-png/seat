@@ -1,0 +1,159 @@
+/* 기본 배경 및 정렬 */
+body {
+    font-family: 'Malgun Gothic', sans-serif;
+    background-color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.main-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 480px;
+    text-align: center;
+}
+
+h1 { color: #0f172a; margin-bottom: 5px; font-size: 26px; }
+.subtitle { color: #64748b; margin-top: 0; font-size: 14px; margin-bottom: 20px; }
+hr { border: 0; height: 1px; background: #cbd5e1; margin-bottom: 20px; }
+
+/* 학반 선택 드롭다운 스타일 */
+.setup-section {
+    font-size: 18px;
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 25px;
+}
+
+#class-select {
+    padding: 6px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #94a3b8;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 🏹 양궁 경기장 레이아웃 */
+.archery-field {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #f8fafc 40%, #cbd5e1 100%);
+    border-radius: 15px;
+    border: 2px dashed #94a3b8;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* 양궁 과녁판 디자인 (CSS 중첩 링) */
+.target-board {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #eab308; /* 10점 골드 노란색 */
+    border-radius: 50%;
+    border: 4px solid #ca8a04;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: transform 0.1s ease;
+}
+
+/* 과녁 테두리 링들 정의 */
+.ring { display: flex; justify-content: center; align-items: center; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+.red   { width: 170px; height: 170px; background-color: #ef4444; }
+.blue  { width: 130px; height: 130px; background-color: #3b82f6; }
+.black { width: 90px;  height: 90px;  background-color: #1e293b; }
+.white { width: 50px;  height: 50px;  background-color: #f8fafc; }
+
+/* 최종 번호가 크게 보일 과녁 정중앙 황금 구역 */
+.gold-center {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #facc15;
+    border: 3px dashed #eab308;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#result-number {
+    font-size: 32px;
+    font-weight: 900;
+    color: #1e293b;
+    text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff, 1px -1px 0px #fff, -1px 1px 0px #fff;
+}
+
+/* 과녁 회전 효과 (화살 쏠 때 작동) */
+.spin-animation {
+    animation: target-spin 0.4s linear infinite;
+}
+
+@keyframes target-spin {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(0.95) rotate(180deg); }
+    100% { transform: scale(1) rotate(360deg); }
+}
+
+/* 🏹 화살 그래픽 및 날아가는 애니메이션 */
+.arrow-graphic {
+    position: absolute;
+    font-size: 40px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.shoot-animation {
+    animation: fly-arrow 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes fly-arrow {
+    0% { bottom: -50px; transform: translateX(-50%) scale(1.8); opacity: 1; }
+    80% { bottom: 90px; transform: translateX(-50%) scale(0.6); opacity: 0.9; }
+    100% { bottom: 90px; transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+
+/* 제어 버튼 및 텍스트 */
+.shoot-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.shoot-btn:hover { background-color: #dc2626; transform: translateY(-1px); }
+.shoot-btn:active { transform: translateY(1px); }
+.shoot-btn:disabled { background-color: #cbd5e1; cursor: not-allowed; box-shadow: none; }
+
+.announcement-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #475569;
+    margin-top: 15px;
+    min-height: 24px;
+}
+
+.hidden { display: none !important; }
